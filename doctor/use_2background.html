@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>畜牧动保互动平台</title>
+		<link rel="stylesheet" type="text/css" href="../aui-20170109-v2.1/css/aui.css" />
+		<style>
+			body {
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			header {
+				// margin-top: 0.75rem;
+			}
+			
+			.aui-searchbar {
+				background: transparent;
+			}
+			
+			.aui-bar-nav .aui-searchbar-input {
+				background-color: #ffffff;
+			}
+			
+			.aui-bar-light .aui-searchbar-input {
+				background-color: #f5f5f5;
+			}
+			
+			#contentRobbing {
+				border: 1px solid gray;
+				height: 200px;
+				overflow-y: auto;
+			}
+		</style>
+	</head>
+
+	<body style="background: #fff">
+		<header class="aui-bar aui-bar-nav">
+			<a class="aui-pull-left aui-btn aui-btn-outlined" href="user_messagesList.jsp">消息</a>
+			兽医后台
+			<a class="aui-pull-right aui-btn aui-btn-outlined" href="user_setmessages.jsp">设置</a>
+		</header>
+		
+		<div class="aui-content-padded">
+			
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10" id="title" style="display: block">
+				<div class="aui-info-item" id="headPortrait" style="display: inline-block;float: left;">
+					<img src="../aui-20170109-v2.1/image/gril.jpg" style="width:4rem" class="aui-img-round" />
+				</div>
+				<div id="tel" style="display: inline-block;float: left;margin-left: 15px;padding-top: 5px">
+					<div style="display: block;color: #333333;">
+					</div>
+					<div style="display: block"><span></span>&nbsp;</div>
+					<div style="display: block">金豆：<span id="allow"></span>&nbsp;个</div>
+				</div>
+				<div class="aui-info-item" id="rightHead">
+					<div class="aui-margin-l-15" id="other">
+						<div style="float: right">
+							<a href="giveDetails.html">
+								<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem">
+                                    <span >提现</span>
+                                </button>
+							</a>
+							<a href="#">
+								<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem">
+                                    <span >历史</span>
+                                </button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<br><br>
+		
+		<div class="aui-content-padded" id="robbing">
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					抢单
+				</div>
+				<div class="aui-info-item">
+					<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem">
+                        <a href="expert_uploadqrcodes.jsp">
+                            <span onclick="clickRefresh()">刷新</span>
+                       </a>
+                   </button>
+				</div>
+			</div>
+			
+			<div id="contentRobbing">
+				
+				<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+					<div class="aui-info-item">
+						<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+					</div>
+					<div class="aui-info-item">
+						10金豆&nbsp;
+						<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem;width: 40px">
+                <a href="expert_uploadqrcodes.jsp">
+                    <span></span>抢
+                </a>
+            </button>
+						<i style="padding-left: 5px"></i>
+					</div>
+				</div>
+				
+				<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+					<div class="aui-info-item">
+						<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+					</div>
+					<div class="aui-info-item">
+						10金豆&nbsp;
+						<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem;width: 40px">
+                <a href="expert_uploadqrcodes.jsp">
+                    <span></span>抢
+                </a>
+            </button>
+						<i style="padding-left: 5px"></i>
+					</div>
+				</div>
+
+				<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+					<div class="aui-info-item">
+						<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+					</div>
+					<div class="aui-info-item">
+						10金豆&nbsp;
+						<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem;width: 40px">
+                <a href="expert_uploadqrcodes.jsp">
+                    <span></span>抢
+                </a>
+            </button>
+						<i style="padding-left: 5px"></i>
+					</div>
+				</div>
+
+				<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+					<div class="aui-info-item">
+						<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+					</div>
+					<div class="aui-info-item">
+						10金豆&nbsp;
+						<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem;width: 40px">
+                <a href="expert_uploadqrcodes.jsp">
+                    <span></span>抢
+                </a>
+            </button>
+						<i style="padding-left: 5px"></i>
+					</div>
+				</div>
+				
+				<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+					<div class="aui-info-item">
+						<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+					</div>
+					<div class="aui-info-item">
+						10金豆&nbsp;
+						<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem;width: 40px">
+                <a href="expert_uploadqrcodes.jsp">
+                    <span></span>抢
+                </a>
+            </button>
+						<i style="padding-left: 5px"></i>
+					</div>
+				</div>
+				
+				<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+					<div class="aui-info-item">
+						<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+					</div>
+					<div class="aui-info-item">
+						10金豆&nbsp;
+						<button class="aui-btn aui-btn-primary aui-btn-block aui-btn-outlined aui-btn-sm" style="height: 1.4rem;line-height: 1.45rem;width: 40px">
+                <a href="expert_uploadqrcodes.jsp">
+                    <span></span>抢
+                </a>
+            </button>
+						<i style="padding-left: 5px"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="aui-content-padded">
+			<br>
+			<div class="aui-bar aui-bar-btn" style="width:80%;">
+				<div class="aui-bar-btn-item aui-active">养殖户</div>
+				<div class="aui-bar-btn-item">经销商</div>
+				<div class="aui-bar-btn-item">企业</div>
+			</div>
+			
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+				</div>
+				<div class="aui-info-item"><i class="aui-iconfont aui-icon-right" style="padding-left: 5px"></i></div>
+			</div>
+
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+				</div>
+				<div class="aui-info-item"><i class="aui-iconfont aui-icon-right" style="padding-left: 5px"></i></div>
+			</div>
+
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+				</div>
+				<div class="aui-info-item"><i class="aui-iconfont aui-icon-right" style="padding-left: 5px"></i></div>
+			</div>
+
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					<img src="../aui-20170109-v2.1/image/demo2.png" style="width:1.5rem" /><span class="aui-margin-l-5">高新区老张养殖户</span>
+				</div>
+				<div class="aui-info-item"><i class="aui-iconfont aui-icon-right" style="padding-left: 5px"></i></div>
+			</div>
+
+			<br>
+		</div>
+
+		<footer class="aui-bar aui-bar-tab" id="footer">
+			<div class="aui-bar-tab-item" tapmode id="one">
+				<a href="../index.jsp">
+					<i class="aui-iconfont aui-icon-home"></i>
+					<div class="aui-bar-tab-label">首页</div>
+				</a>
+			</div>
+
+			<div class="aui-bar-tab-item" tapmode id="two">
+				<a href="user_community.jsp">
+					<i class="aui-iconfont aui-icon-more"></i>
+					<div class="aui-bar-tab-label">社区</div>
+				</a>
+			</div>
+			
+			<div class="aui-bar-tab-item" tapmode id="three">
+				<a href="user_classes.jsp">
+					<i class="aui-iconfont aui-icon-cert"></i>
+					<div class="aui-bar-tab-label">课程</div>
+				</a>
+			</div>
+			
+			<div class="aui-bar-tab-item" aui-active tapmode id="four">
+				<i class="aui-iconfont aui-icon-my"></i>
+				<div class="aui-bar-tab-label">我的</div>
+			</div>
+		</footer>
+	</body>
+	
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		window.onload = autoRefresh; //页面加载完成后执行autoRefresh函数
+		$(document).ready(function() {
+			var url = "<%=request.getContextPath()%>/servlet/GetMoney";
+			var data = {};
+			$.post(url, data, function(response) {
+				var money = response.money;
+				var moneytemp = response.moneyTemp;
+				$("#allow").html(money);
+			}, "json");
+		})
+		
+		function autoRefresh() {
+			clickRefresh; //写上刷新操作的代码
+			setTimeout(autoRefresh, 60000); //每隔60000毫秒（1分钟）执行一次autoRefresh函数
+		}
+
+		function clickRefresh() { //当刷新按钮被点击时，执行此函数
+			//写上刷新操作的代码
+		}
+	</script>
+
+</html>

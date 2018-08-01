@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+			<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+			<title>兽医科室</title>
+			<link rel="stylesheet" type="text/css" href="aui-20170109-v2.1/css/aui.css" />
+			<link rel="stylesheet" href="font_751890_5bfu8cr8vk3/iconfont.css" />
+			<script src="js/jquery-3.3.1.min.js"></script>
+			<script src="font_751890_5bfu8cr8vk3/iconfont.js"></script>
+			<script type="text/javascript" src="aui-20170109-v2.1/script/api.js"></script>
+			<style>
+				body {
+					padding: 0px;
+					margin: 0px;
+				}
+				
+				.icon {
+					width: 1em;
+					height: 1em;
+					vertical-align: -0.15em;
+					fill: currentColor;
+					overflow: hidden;
+				}
+				
+				header {
+					// margin-top: 0.75rem;
+				}
+				
+				.aui-searchbar {
+					background: transparent;
+				}
+				
+				.aui-bar-nav .aui-searchbar-input {
+					background-color: #ffffff;
+				}
+				
+				.aui-bar-light .aui-searchbar-input {
+					background-color: #f5f5f5;
+				}
+				
+				#newicon {
+					margin-right: 10px;
+				}
+				
+				#expert {
+					float: left;
+					width: 45%;
+					margin: 15px auto;
+				}
+				
+				#treatment {
+					float: right;
+					width: 45%;
+					margin: 15px auto;
+				}
+				
+				#search {
+					margin-top: 10px;
+				}
+				
+				#search form {
+					height: 100px;
+				}
+				
+				#newicon {
+					position: absolute;
+					top: 5%;
+					left: 90%;
+				}
+				
+				.bigIcon {
+					font-size: 35px;
+					margin-top: 15px;
+				}
+
+			</style>
+		</head>
+
+		<body>
+			<header class="aui-bar aui-bar-nav">
+				兽药平台欢迎您
+			</header>
+			<div class="aui-searchbar" id="search">
+				<div class="aui-searchbar-input aui-border-radius" id="search-input">
+					<i class="aui-iconfont aui-icon-search"></i>
+					<form action="#">
+						<input type="search" placeholder="请输入搜索内容">
+					</form>
+					<i class="iconfont" id="newicon">&#xe6d7;</i>
+				</div>
+			</div>
+			<div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined" id="expert">
+				<i class="aui-iconfont aui-icon-my"></i> 专家咨询
+			</div>
+			<div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined" id="treatment">
+				<i class="aui-iconfont aui-icon-like"></i> 今日义诊
+			</div>
+
+			<section class="aui-grid">
+				<div class="aui-row">
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-zhurou"></use>
+						</svg>
+						<div class="aui-grid-label">猪</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-yangji"></use>
+						</svg>
+						<div class="aui-grid-label">鸡</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-mao"></use>
+						</svg>
+						<div class="aui-grid-label">猫</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-gou"></use>
+						</svg>
+						<div class="aui-grid-label">狗</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-zhurou"></use>
+						</svg>
+						<div class="aui-grid-label">猪</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-yangji"></use>
+						</svg>
+						<div class="aui-grid-label">鸡</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-mao"></use>
+						</svg>
+						<div class="aui-grid-label">猫</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-gou"></use>
+						</svg>
+						<div class="aui-grid-label">狗</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-zhurou"></use>
+						</svg>
+						<div class="aui-grid-label">猪</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-yangji"></use>
+						</svg>
+						<div class="aui-grid-label">鸡</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-mao"></use>
+						</svg>
+						<div class="aui-grid-label">猫</div>
+					</div>
+					<div class="aui-col-xs-3">
+						<svg class="icon bigIcon" aria-hidden="true">
+							<use xlink:href="#icon-gou"></use>
+						</svg>
+						<div class="aui-grid-label">狗</div>
+					</div>
+			</section>	
+		</body>
+		<script>
+			$(document).ready(function() {})
+		</script>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>提现记录详情</title>
+		<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" href="../aui-20170109-v2.1/css/aui.css" />
+		<style>
+			#userinfo {
+				padding-top: 10px;
+				border-bottom: 1px inset black;
+			}
+			
+			.aui-info-item {
+				font-size: 1rem;
+			}
+			
+			#usename {
+				margin-left: 20px;
+			}
+			
+			#rechargeTime {
+				margin-right: 30px;
+			}
+			
+			.confirmInfo {
+				background-color: #EAFFEA;
+				padding: 0px 10px;
+			}
+			
+			#confirmMoney {
+				width: 90%;
+				margin: 10px auto;
+			}
+			
+			iframe {
+				border: 0;
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+    <a class="aui-pull-left aui-btn" href="use_2background.html">
+        <span class="aui-iconfont aui-icon-left"></span>
+    </a>
+    <div class="aui-title">提现确认页</div>
+</header>
+
+		<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10" id="userinfo">
+			<div class="aui-info-item">
+				<img src="../aui-20170109-v2.1/image/demo/2.jpeg" style="width:3rem" /><span id="usename">***</span>兽医
+			</div>
+			<div class="aui-info-item" id="rechargeTime">time</div>
+		</div>
+		<br />
+		<div class="confirmInfo">
+			金额
+			<div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined" id="confirmMoney">12金豆 10元</div>
+		</div>
+
+		<div class="confirmInfo">
+			历史服务记录
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					<img src="../aui-20170109-v2.1/image/demo/2.jpeg" style="width:1.5rem" />服务了<span>***养殖户</span>
+				</div>
+				<div class="aui-info-item"><span>2金豆</span><i class="aui-iconfont aui-icon-right" style="padding-left: 5px"></i></div>
+			</div>
+
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					<img src="../aui-20170109-v2.1/image/demo/2.jpeg" style="width:1.5rem" />服务了<span>***养殖户</span>
+				</div>
+				<div class="aui-info-item"><span>2金豆</span><i class="aui-iconfont aui-icon-right" style="padding-left: 5px"></i></div>
+			</div>
+
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					<img src="../aui-20170109-v2.1/image/demo/2.jpeg" style="width:1.5rem" />服务了<span>***养殖户</span>
+				</div>
+				<div class="aui-info-item"><span>2金豆</span><i class="aui-iconfont aui-icon-right" style="padding-left: 5px"></i></div>
+			</div>
+			
+			<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10">
+				<div class="aui-info-item">
+					<img src="../aui-20170109-v2.1/image/demo/2.jpeg" style="width:1.5rem" />服务了<span>***养殖户</span>
+				</div>
+				<div class="aui-info-item"><span>2金豆</span><i class="aui-iconfont aui-icon-right" style="padding-left: 5px"></i></div>
+			</div>
+		</div>
+		<iframe src="copy.html" id="page_bottom" scrolling="no" />
+	</body>
+
+</html>

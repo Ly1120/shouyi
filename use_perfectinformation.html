@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>畜牧动保互动平台</title>
+		<link rel="stylesheet" href="aui-v2.1.copy/css/aui.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="aui-20170109-v2.1/script/api.js"></script>
+		<script class="resources library" src="js/area.js" type="text/javascript"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: white;
+				font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+			}
+			
+			#money {
+				width: 32%;
+				margin: 50px auto 10px auto;
+			}
+			
+			.info select {
+				border: 1px #993300 solid;
+				background: #FFFFFF;
+				font-size: 10.5px;
+			}
+			
+			.info #show {
+				color: #3399FF;
+			}
+			
+			#area {
+				width: 20px;
+			}
+			#prompt3 {
+				border: 1px solid black;
+				text-align: center;
+				position: relative;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			
+			#imgSpan {
+				font-size: 17px;
+				position: absolute;
+				top: 0px;
+				left: 0px;			
+			}
+			
+			.filepath {
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+			}
+			
+			#img3 {
+				height: 100%;
+				width: 100%;
+				display: none;
+			}
+			
+			#submitBtn {
+				border: 0;
+				width: 60%;
+				margin: 10px auto;
+			}
+			
+			li img {
+				width: 50px;
+				height: 50px;
+			}
+			
+			#dropDown {
+				width: 70px;
+				height: 50px;
+				border: 1px solid black;
+			}
+			
+			#dropDown div {
+				width: 50px;
+				height: 50px;
+			}
+			
+			#dropDown i {
+				line-height: 50px;
+				position: absolute;
+				top: 0px;
+				left: 138px;
+			}
+			
+			.aui-icon-down {
+				font-size: 1.5rem;
+			}
+			
+			#popup {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			<div class="aui-title">完善资料</div>
+			<a class="aui-pull-right aui-btn">
+				<span class="aui-iconfont aui-icon-right"></span>
+			</a>
+		</header>
+		<form action="#" method="post">
+			<div class="aui-content-padded">
+				<ul class="aui-list aui-form-list" id="ul1">
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								昵称
+							</div>
+							<div class="aui-list-item-input">
+								<input type="text" name="username" id="nickname" placeholder="请输入昵称">
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label" id="area">
+								地区
+							</div>
+							<div class="info" class="aui-list-item-input">
+								<select id="s_province" name="s_province"></select>
+								<select id="s_city" name="s_city"></select>
+								<select id="s_county" name="s_county"></select>
+								<script type="text/javascript">
+									_init_area();
+								</script>
+
+								<div id="show"></div>
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								头像
+							</div>
+							<div class="aui-list-item-input">
+								<div id="dropDown" onclick="choiceImg()">
+									<div>
+										<img class="aui-img-round" id="selectedIcon" src="aui-20170109-v2.1/image/demo1.png" />
+									</div>
+									<i class="aui-iconfont aui-icon-down"></i>
+								</div>
+
+								<div id="popup">
+									<section class="aui-grid">
+										<div class="aui-row">
+											<div class="aui-col-xs-2 portrait">
+												<img class="aui-img-round" src="aui-20170109-v2.1/image/demo1.png" />
+											</div>
+											<div class="aui-col-xs-2 portrait">
+												<img class="aui-img-round" src="aui-20170109-v2.1/image/demo2.png" />
+											</div>
+											<div class="aui-col-xs-2 portrait">
+												<img class="aui-img-round" src="aui-20170109-v2.1/image/demo3.png" />
+											</div>
+											<div class="aui-col-xs-2 portrait">
+												<img class="aui-img-round" src="aui-20170109-v2.1/image/demo4.png" />
+											</div>
+											<div class="aui-col-xs-2 portrait">
+												<img class="aui-img-round" src="aui-20170109-v2.1/image/demo5.png" />
+											</div>
+											<div class="aui-col-xs-2 portrait">
+												<div id="prompt3">
+													<span id="imgSpan">
+					                                    上传头像
+					                                </span>
+												    <input type="file" id="file" class="filepath" onchange="changepic(this)" accept="image/jpg,image/jpeg,image/png,image/PNG">
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								QQ邮箱
+							</div>
+							<div class="aui-list-item-input">
+								<input type="email" name="user_email" id="user_email" placeholder="请输入您的邮箱">
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								介绍情况
+							</div>
+							<div class="aui-list-item-input">
+								<textarea id="user_introduce" name="user_introduce" placeholder="请输入您的简介" style="height:3rem;border:1px solid #ccc"></textarea>
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								微信账号
+							</div>
+							<div class="aui-list-item-input">
+								<input type="text" name="user_wx" id="user_wx" placeholder="用于提现">
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								支付宝账号
+							</div>
+							<div class="aui-list-item-input">
+								<input type="text" name="user_zfb" id="user_zfb" placeholder="用于提现">
+								<input  id="user_icon" type="hidden" value="aui-20170109-v2.1/image/demo1.png" name="user_icon"  />  
+                                                                                                    <!--
+                                                                                                    	作者：15093253629@163.com
+                                                                                                    	时间：2018-07-26
+                                                                                                    	描述：这里的hidden用来获取点击的图片src地址
+                                                                                                    	具体的操作在下面的js里，但点击某个图片时，会给hidden设置value
+                                                                                                    	hidden的默认值就是网页刚打时显示的那个绿色头像，不点击就不会换
+                                                                                                    	点击选择其他头像后，相应的hidden的值发生改变
+                                                                                                    -->
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								单次咨询费
+							</div>
+							<div class="aui-list-item-input">
+								<select id="singlePay" name="singlePay">
+									<option disabled="disabled" selected="selected">单次咨询费用</option>
+									<option value="20金豆">20金豆</option>
+									<option value="30金豆">30金豆</option>
+									<option value="40金豆">40金豆</option>
+								</select>
+							</div>
+						</div>
+					</li>
+
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label" style="position: relative; bottom: 45px;">
+								科室(多选) :
+							</div>
+							<div class="aui-list-item-input">
+								<input class="checkRoom" style="margin-top: 15px;" type="checkbox" name="checkRoom" />鸡
+								<br />
+								<input class="checkRoom" type="checkbox" name="checkRoom" value="猪" />猪
+								<br />
+								<input class="checkRoom" type="checkbox" name="checkRoom" value="鸭" />鸭
+								<br />
+								<input class="checkRoom" type="checkbox" name="checkRoom" value="鹅" />鹅
+								<br />
+								<input class="checkRoom" type="checkbox" name="checkRoom" value="鱼" />鱼
+							</div>
+						</div>
+					</li>
+
+					<div class="aui-list-item-inner">
+						<div class="aui-list-item-input">
+							<button id="submitBtn" class="aui-btn aui-btn-info aui-btn-block" onclick="return form_check()">提交</button>
+						</div>
+					</div>
+				</ul>
+			</div>
+		
+		</form>
+	</body>
+	<script>
+		var Gid = document.getElementById;
+		var showArea = function() {
+				Gid("show").innerHTML = ("<h3>省" + Gid("s_province").value + "市" +
+					Gid("s_city" + "县/区" +
+						Gid("s_county").value + "</h3>") Gid("s_county").setAttribute("onchange", "showArea()");
+				}
+	</script>
+
+	<script>
+				function changepic() {					
+					var reads = new FileReader();					
+					f = document.getElementById('file').files[0];
+					reads.readAsDataURL(f);
+					reads.onload = function(e) {						
+						document.getElementById('selectedIcon').src = this.result;
+					};
+				}
+
+		function choiceImg() {
+			var a = $("#popup").css("display");
+			if(a == "block") {
+				$("#popup").css("display", "none");
+			} else {
+				$("#popup").css("display", "block");
+			}
+		}
+
+		$(function() {
+			$(".portrait").each(function() {
+				$(this).click(function() {
+					var url = $(this).children().attr("src");
+					$("#selectedIcon").attr("src", url);
+					$("#user_icon").val(url);  //这个就是当图片点击的时候设置hidden的value值
+				});
+			});
+		});
+
+		function form_check() {
+			var user_name = $("#usename").value;
+			var province = $("#s_province option:selected").val(); //默认值是"省份"
+			var city = $("#s_city option:selected").val(); //默认值是"地级市"
+			var county = $("#s_county option:selected").val(); //默认值是"市、县级市"
+			var area = province + "/" + city + "/" + county;
+
+			//var user_icon = $("#user_icon").value;  //这里理论上可以为空(头像）
+			var user_email = $("#user_email").value;
+			var user_introduce = $("#user_introduce").value;
+			var user_wx = $("#user_wx").value;
+			var user_zfb = $("#user_zfb").value;
+			var singlePay = $("#singlePay option:selected").val(); //默认值是"单次咨询费用"
+			var checkedMount = 0; //用来统计多选按钮被点击的个数
+			$(".checkRoom").each(function() {
+				if($(this).is(":checked")) {
+					checkedMount++;
+				}
+			});
+
+			if(user_name == '' || area == '省份/地级市/市、县级市' ||
+				user_email == '' || user_introduce == '' || user_wx == '' || user_zfb == '' ||
+				singlePay == '单次咨询费用' || checkedMount == 0) {
+				alert("请完善信息！");
+				return false;
+			} else {
+				return true;
+			}
+		}
+	</script>
+
+</html>

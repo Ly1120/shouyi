@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>养殖户充值</title>
+		<link rel="stylesheet" href="../aui-20170109-v2.1/css/aui.css" />
+		<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../aui-20170109-v2.1/script/api.js"></script>
+		<style>
+			#rechargeNum {
+				font-family: "微软雅黑";
+				height: 70%;
+				float: left;
+				line-height: 40px;
+			}
+			
+			#money {
+				width: 100%;
+				height: 110px;
+				border: 1px solid white;
+			}
+			
+			#btnGroup {
+				width: 80%;
+				float: right;
+			}
+			
+			.btn {
+				height: 60px;
+				width: 23%;
+				text-align: center;
+				margin-top: 10px;
+			}
+			
+			#QRcode {
+				width: 100%;
+				height: 200px;
+			}
+			
+			#alipay,
+			#weChat {
+				width: 40%;
+				height: 180px;
+				margin-top: 10px;
+			}
+			
+			#alipay {
+				float: left;
+				margin-left: 5%;
+			}
+			
+			#weChat {
+				float: right;
+				margin-right: 5%;
+			}		
+			
+			#img1,
+			#img2,
+			#img3 {
+				height: 100%;
+				width: 100%;
+			}
+			
+			#prompt1 {
+				height: 30px;
+				font-family: "微软雅黑";
+				margin-top: 80px;
+				width: 100%;
+				padding-left: 20px;
+			}
+			
+			#prompt2 {
+				height: 30px;
+				font-family: "微软雅黑";
+				width: 100%;
+				padding-left: 20px;
+			}						
+			
+			#upImg {
+				width: 100%;
+				height: 240px;
+				border: 1px solid white;
+			}
+			
+			#lastBtn {
+				width: 90%;
+				margin: 0 auto;
+				border: 0;
+			}						
+			
+			#imgPreview {
+				width: 40%;
+				height: 180px;
+				margin: 10px auto 0px auto;
+				border: 1px solid black;
+				text-align: center;
+			}
+			#prompt3 {
+				width: 100%;
+				height: 180px;
+				text-align: center;
+				position: relative;
+			}
+			#imgSpan {
+				position: absolute;
+				top: 60px;
+				left: 40px;
+			}
+			.filepath {
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+			}
+			#img3 {
+				height: 100%;
+				width: 100%;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			养殖户充值
+		</header>
+		<form>
+		<div id="money">
+			<div id="rechargeNum">充值数量:</div>
+			<div id="btnGroup">
+				<div class="aui-btn aui-btn-info  btn" id="btn1">12金豆<br/><span>10元</span></div>
+				<div class="aui-btn aui-btn-info aui-btn-outlined btn" id="btn2">26金豆<br/><span>20元</span></div>
+				<div class="aui-btn aui-btn-info aui-btn-outlined btn" id="btn3">42金豆<br/><span>30元</span></div>
+				<div class="aui-btn aui-btn-info aui-btn-outlined btn" id="btn4">68金豆<br/><span>50元</span></div>
+			</div>
+			<div id="prompt1">保存下方图片，打开支付宝或微信扫码付款</div>
+		</div>
+		<div id="QRcode">
+			<div id="alipay">
+				<img src="../aui-20170109-v2.1/image/demo1.png" id="img1" />
+			</div>
+
+			<div id="weChat">
+				<img src="../aui-20170109-v2.1/image/demo1.png" id="img2" />
+			</div>
+		</div>
+		<div id="upImg">
+			<div id="prompt2">付款成功后，上传付款截图</div>
+			<div id="imgPreview">
+				<div id="prompt3">
+					<span id="imgSpan">
+					点击上传<br />
+					<i class="aui-iconfont aui-icon-plus"></i>
+					</span>
+					<input type="file" id="file" class="filepath" onchange="changepic(this)" accept="image/jpg,image/jpeg,image/png,image/PNG">
+				</div>
+				<img src="#" id="img3" />
+			</div>
+		</div>	
+		<button onclick="aaa()" class="aui-btn aui-btn-info aui-btn-block" id="lastBtn">提交审核</button>
+	</form>
+	</body>
+	<script>
+		$(function() {
+			$("#btn1").click(function() {
+				$("#btn2").addClass("aui-btn-outlined");
+				$("#btn3").addClass("aui-btn-outlined");
+				$("#btn4").addClass("aui-btn-outlined");
+				$("#btn1").removeClass("aui-btn-outlined");
+				$("#img1").attr("src", "aui-20170109-v2.1/image/demo1.png");
+				$("#img2").attr("src", "aui-20170109-v2.1/image/demo1.png");
+			});
+			$("#btn2").click(function() {
+				$("#btn1").addClass("aui-btn-outlined");
+				$("#btn3").addClass("aui-btn-outlined");
+				$("#btn4").addClass("aui-btn-outlined");
+				$("#btn2").removeClass("aui-btn-outlined");
+				$("#img1").attr("src", "aui-20170109-v2.1/image/demo2.png");
+				$("#img2").attr("src", "aui-20170109-v2.1/image/demo2.png");
+			});
+			$("#btn3").click(function() {
+				$("#btn1").addClass("aui-btn-outlined");
+				$("#btn2").addClass("aui-btn-outlined");
+				$("#btn4").addClass("aui-btn-outlined");
+				$("#btn3").removeClass("aui-btn-outlined");
+				$("#img1").attr("src", "aui-20170109-v2.1/image/demo3.png");
+				$("#img2").attr("src", "aui-20170109-v2.1/image/demo3.png");
+			});
+			$("#btn4").click(function() {
+				$("#btn1").addClass("aui-btn-outlined");
+				$("#btn2").addClass("aui-btn-outlined");
+				$("#btn3").addClass("aui-btn-outlined");
+				$("#btn4").removeClass("aui-btn-outlined");
+				$("#img1").attr("src", "aui-20170109-v2.1/image/demo4.png");
+				$("#img2").attr("src", "aui-20170109-v2.1/image/demo4.png");
+			});
+		});
+
+		function changepic() {
+			$("#prompt3").css("display", "none");
+			var reads = new FileReader();
+			f = document.getElementById('file').files[0];
+			reads.readAsDataURL(f);
+			reads.onload = function(e) {
+				document.getElementById('img3').src = this.result;
+				$("#img3").css("display", "block");
+			};
+		}
+
+		function aaa() {
+			$(".btn").each(function() {
+				var flag = $(this).hasClass("aui-btn-outlined");
+				if(flag == false) {
+					var text = $(this).text();
+					$.ajax({
+						type: "POST",
+						url: "xx",
+						data: "money=" + text,
+					});
+				}
+			});
+		}
+	</script>
+
+</html>

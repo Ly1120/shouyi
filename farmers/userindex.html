@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>畜牧动保互动平台</title>
+		<link rel="stylesheet" type="text/css" href="../aui-20170109-v2.1/css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../aui-20170109-v2.1/css/aui-slide.css" />
+
+		<style>
+			body {
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			header {
+				// margin-top: 0.75rem;
+			}
+			
+			.aui-searchbar {
+				background: transparent;
+			}
+			
+			.aui-bar-nav .aui-searchbar-input {
+				background-color: #ffffff;
+			}
+			
+			.aui-bar-light .aui-searchbar-input {
+				background-color: #f5f5f5;
+			}
+			
+			.aui-slide-node img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#ask1 {
+				float: left;
+				width: 45%;
+				margin: 10px 10px 10px 5px;
+				background-color: #000000;
+			}
+			
+			#ask2 {
+				float: right;
+				width: 45%;
+				margin: 10px 5px 10px 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			兽药平台（养殖场）
+		</header>
+
+		<div class="aui-content-padded">
+			<div id="aui-slide3">
+				<div class="aui-slide-wrap">
+					<div class="aui-slide-node bg-dark">
+						<img src="../aui-20170109-v2.1/image/l1.png" />
+					</div>
+					<div class="aui-slide-node bg-dark">
+						<img src="../aui-20170109-v2.1/image/l2.png" />
+					</div>
+					<div class="aui-slide-node bg-dark">
+						<img src="../aui-20170109-v2.1/image/l3.png" />
+					</div>
+				</div>
+				<div class="aui-slide-page-wrap">
+					<!--分页容器-->
+				</div>
+			</div>
+		</div>
+		<div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined" id="ask1" onclick="changeColor1()">快速问医生</div>
+		<div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined" id="ask2" onclick="changeColor2()">按科室找专家</div>
+		<div>
+			<section class="aui-grid aui-margin-b-15">
+				<div class="aui-row">
+					<div class="aui-col-xs-4" id="nav1">
+						<a href="addTel.jsp">
+							<i class="aui-iconfont aui-icon-home"></i>
+							<div class="aui-grid-label">快速购药</div>
+						</a>
+					</div>
+					<div class="aui-col-xs-4" id="nav2">
+						<a href="historylist.jsp">
+							<i class="aui-iconfont aui-icon-home"></i>
+							<div class="aui-grid-label">养殖知识</div>
+						</a>
+					</div>
+					<div class="aui-col-xs-4" id="nav3">
+						<a href="verbaltrick.jsp">
+							<i class="aui-iconfont aui-icon-home"></i>
+							<div class="aui-grid-label">症状自诊</div>
+						</a>
+					</div>
+					<div class="aui-col-xs-4" id="nav4">
+						<a href="customerManagement.jsp">
+							<i class="aui-iconfont aui-icon-home"></i>
+							<div class="aui-grid-label">网络医院</div>
+						</a>
+					</div>
+					<div class="aui-col-xs-4" id="nav5">
+						<a href="accountsetting.jsp">
+							<i class="aui-iconfont aui-icon-home"></i>
+							<div class="aui-grid-label">药企专家</div>
+						</a>
+					</div>
+					<div class="aui-col-xs-4" id="home">
+						<a>
+							<i class="aui-iconfont aui-icon-more"></i>
+							<div class="aui-grid-label">经销商</div>
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+		<footer class="aui-bar aui-bar-tab" id="footer">
+			<div class="aui-bar-tab-item aui-active" tapmode>
+				<i class="aui-iconfont aui-icon-more"></i>
+				<div class="aui-bar-tab-label">首页</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode>
+				<i class="aui-iconfont aui-icon-home"></i>
+				<div class="aui-bar-tab-label">社区</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode>
+				<i class="aui-iconfont aui-icon-cert"></i>
+				<div class="aui-bar-tab-label">课程</div>
+			</div>
+			<div class="aui-bar-tab-item" tapmode>
+				<i class="aui-iconfont aui-icon-my"></i>
+				<div class="aui-bar-tab-label">我的</div>
+			</div>
+		</footer>
+	</body>
+	<script type="text/javascript" src="../aui-20170109-v2.1/script/aui-slide.js"></script>
+	<script type="text/javascript">
+		var slide3 = new auiSlide({
+			container: document.getElementById("aui-slide3"),
+			"height": 240,
+			"speed": 500,
+			"autoPlay": 3000, //自动播放
+			"loop": true,
+			"pageShow": true,
+			"pageStyle": 'line',
+			'dotPosition': 'center'
+		});
+	</script>
+
+	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#nav6").click(function() {
+				alert("正在开发中，敬请期待");
+			});
+		});
+
+		function changeColor1() {
+			$("#ask1").removeClass("aui-btn-outlined");
+			$("#ask2").addClass("aui-btn-outlined");
+			window.location.href="askDoctor.html";
+		}
+
+		function changeColor2() {
+			$("#ask2").removeClass("aui-btn-outlined");
+			$("#ask1").addClass("aui-btn-outlined");
+		}
+	</script>
+
+</html>

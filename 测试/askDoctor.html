@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>快速问兽医</title>
+		<link rel="stylesheet" href="aui-20170109-v2.1/css/aui.css" />
+		<link rel="stylesheet" href="font_751890_5bfu8cr8vk3/iconfont.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="aui-20170109-v2.1/script/api.js"></script>
+		<script type="text/javascript" src="font_751890_5bfu8cr8vk3/iconfont.js"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.icon {
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+			}
+			
+			#select {
+				margin-top: 20px;
+			}
+			
+			#selectinput {
+				border: 1px solid gainsboro;
+			}
+			
+			#text {
+				margin-top: 20px;
+				border: 1px solid gray;
+				box-shadow: 1px 5px 5px #999999;
+				text-align: center;
+				margin-left: -10px;
+			}
+			
+			#text textarea {
+				height: 150px;
+			}
+			
+			.bigIcon {
+				font-size: 35px;
+				margin-left: 10px;
+			}
+			
+			#last {
+				height: 70px;
+			}
+			
+			#img {
+				float: left;
+				margin-left: 20px;
+			}
+			
+			#yuyin {
+				float: right;
+				margin-right: -10px;
+			}
+			
+			.aui-btn {
+				width: 90%;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			快速问兽医
+		</header>
+		<ul class="aui-list aui-form-list" id="select">
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						类型
+					</div>
+					<div class="aui-list-item-input" id="selectinput">
+						<select>
+							<option value="A">A</option>
+							<option value="B">B</option>
+							<option value="C">C</option>
+							<option value="D">D</option>
+							<option value="E">E</option>
+							<option value="F">F</option>
+						</select>
+					</div>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-input" id="text">
+						<textarea cols="50" rows="50" placeholder="在此处详细描述您遇到的问题。"></textarea>
+					</div>
+				</div>
+			</li>
+			<br />
+			<div id="last">
+				<div class="aui-col-xs-3" id="img">
+					<svg class="icon bigIcon" aria-hidden="true">
+						<use xlink:href="#icon-msnui-add"></use>
+					</svg>
+					<div class="aui-grid-label">添加图片</div>
+				</div>
+				<div class="aui-col-xs-3" id="yuyin">
+					<svg class="icon bigIcon" aria-hidden="true">
+						<use xlink:href="#icon-yuyin"></use>
+					</svg>
+					<div class="aui-grid-label">语音输入</div>
+				</div>
+			</div>
+			<br />
+			<div class="aui-btn aui-btn-info aui-btn-block">下一步</div>
+			<br />
+		</ul>
+	</body>
+
+</html>

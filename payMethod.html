@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>提交二维码</title>
+		<link rel="stylesheet" href="aui-20170109-v2.1/css/aui.css" />
+		<link rel="stylesheet" href="font_751890_5bfu8cr8vk3/iconfont.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="aui-20170109-v2.1/script/api.js"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#alipay {
+				width: 42%;
+				height: 200px;
+				float: left;
+				margin-left: 5%;
+				margin-top: 30px;
+				text-align: center;
+				padding-top: 50px;
+				padding-left: 5px;
+			}
+			
+			#weChat {
+				width: 42%;
+				height: 200px;
+				float: right;
+				margin-right: 5%;
+				margin-top: 30px;
+				text-align: center;
+				padding-top: 50px;
+			}
+			
+			#mode {
+				background-color: white;
+				height: 260px;
+				margin-top: 87%;
+				text-align: center;
+				display: none;
+			}
+			
+			#mode1,
+			#mode2,
+			#mode3 {
+				width: 99%;
+				margin: 10px auto;
+				text-align: center;
+				height: 50px;
+				line-height: 50px;
+			}
+			
+			#imageSpan {
+				position: absolute;
+				left: 40%;
+				top: 0px;
+			}
+			
+			#img1 {
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				visibility: hidden;
+			}
+			
+			#img2 {
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				visibility: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			快速问兽医
+		</header>
+		<div id="alipay" class="aui-btn aui-btn-block ">
+			支付宝收款二维码
+			<br /> 点击上传
+			<img src="#" id="img1" />
+		</div>
+
+		<div id="weChat" class="aui-btn aui-btn-block">
+			微信收款二维码
+			<br /> 点击上传
+			<img src="#" id="img2" />
+		</div>
+		<div id="mode">
+			<div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined">请选择上传方式</div>
+			<div class="aui-btn aui-btn-info " id="mode1">
+				<span class="aui-iconfont aui-icon-camera">&nbsp;拍照</span>
+			</div>
+			<div class="aui-btn aui-btn-info" id="mode2">
+				<span class="aui-iconfont aui-icon-image" id="imageSpan">&nbsp;相册</span>
+				<input type="file" id="file" class="filepath" onchange="changepic(this)" style="opacity: 0; width: 90%;" accept="image/jpg,image/jpeg,image/png,image/PNG">
+			</div>
+			<div class="aui-btn aui-btn-block" id="mode3">取消</div>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			$("#alipay").click(function() {
+				$("#mode").fadeIn();
+				$("#alipay").addClass("aui-btn-outlined");
+				$("#weChat").removeClass("aui-btn-outlined");
+			});
+			$("#weChat").click(function() {
+				$("#mode").fadeIn();
+				$("#weChat").addClass("aui-btn-outlined");
+				$("#alipay").removeClass("aui-btn-outlined");
+			});
+			$("#mode3").click(function() {
+				$("#mode").fadeOut();
+				$("#alipay").removeClass("aui-btn-outlined");
+				$("#weChat").removeClass("aui-btn-outlined");
+			});
+		});
+
+		function changepic() {
+			var reads = new FileReader();
+			f = document.getElementById('file').files[0];
+			reads.readAsDataURL(f);
+			reads.onload = function(e) {
+				if($("#alipay").hasClass("aui-btn-outlined")) {
+					$("#mode").fadeOut();
+					document.getElementById('img1').src = this.result;
+					$("#img1").css("visibility","inherit");
+					
+				} else {
+					$("#mode").fadeOut();
+					document.getElementById('img2').src = this.result;
+					$("#img2").css("visibility","inherit");
+					
+				};
+			};
+		}
+	</script>
+
+</html>

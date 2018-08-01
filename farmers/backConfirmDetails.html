@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>贾老师后台确认详情</title>
+		<link rel="stylesheet" href="../aui-20170109-v2.1/css/aui.css" />
+		<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../aui-20170109-v2.1/script/api.js"></script>
+		<style>
+			#userinfo {
+				padding-top: 30px;
+				border-bottom: 1px inset black;
+			}
+			
+			.aui-info-item {
+				font-size: 1rem;
+			}
+			
+			#usename {
+				margin-left: 20px;
+			}
+			
+			#rechargeTime {
+				margin-right: 30px;
+			}
+			
+			.confirmInfo {
+				background-color: #EAFFEA;
+				padding: 10px 10px;
+			}
+			
+			#confirmMoney {
+				width: 90%;
+				margin: 10px auto;
+			}
+			
+			#img {
+				margin-top: 20px;
+				width: 100%;
+			}
+			
+			#confirmImg {
+				width: 42%;
+				height: 150px;
+				margin: 10px auto;
+			}
+			
+			#confirmsuccess {
+				width: 90%;
+				margin: 20px auto 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			充值确认页
+		</header>
+
+		<div class="aui-info aui-margin-t-10 aui-padded-l-10 aui-padded-r-10" id="userinfo">
+			<div class="aui-info-item">
+				<img src="../aui-20170109-v2.1/image/demo/2.jpeg" style="width:3rem" /><span id="usename">***</span>养殖户
+			</div>
+			<div class="aui-info-item" id="rechargeTime">time</div>
+		</div>
+		<br />
+		<div class="confirmInfo">
+			充值金额
+			<div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined" id="confirmMoney">12金豆 10元</div>
+		</div>
+		<div id="img" class="confirmInfo">
+			充值截图
+			<div id="confirmImg">
+				<img src="../aui-20170109-v2.1/icon/icon.png" />
+			</div>
+		</div>
+		<div class="aui-btn aui-btn-info aui-btn-block" id="confirmsuccess">确认转账成功</div>
+	</body>
+
+</html>

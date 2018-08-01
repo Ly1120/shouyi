@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>设置价格</title>
+		<link rel="stylesheet" href="aui-20170109-v2.1/css/aui.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="aui-20170109-v2.1/script/api.js"></script>
+		<style>
+			#btn {
+				width: 80%;
+				margin: 0 auto;
+			}
+			
+			#prompt1 {
+				float: left;
+				height: 46px;
+				line-height: 46px;
+				font-size: 20px;
+				margin-left: 5%;
+			}
+			
+			#input1,#input2 {
+				float: right;
+				width: 20%;
+				margin-right: 10%;
+				height: 40px;
+				background-color: white;
+			}
+			
+			#money1 {
+				width: 90%;
+				height: 60px;
+				padding-top: 7px;
+				background-color: #EAFFEA;
+				margin: 40px auto 20px auto;
+			}
+			
+			#money2 {
+				width: 90%;
+				height: 60px;
+				padding-top: 7px;
+				background-color: #EAFFEA;
+				margin: 20px auto 60px auto;
+			}
+			
+			#prompt2 {
+				float: left;
+				height: 46px;
+				line-height: 46px;
+				font-size: 20px;
+				margin-left: 35px;
+			}
+			
+			#input2 {
+				float: right;
+				width: 20%;
+				margin-right: 10%;
+				height: 40px;
+			}
+			
+			.prompt {
+				width: 80%;
+				margin: 0 auto;
+				margin-top: 30px;
+				height: 40px;
+				display: none;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			设置价格
+		</header>
+		<div>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner" id="money1">
+					<div class="aui-list-item-label" id="prompt1">
+						机器人单次询问价格:
+					</div>
+					<div class="aui-list-item-input" id="input1">
+						<input type="text" placeholder="12.00" id="input1Obj">
+						
+					</div>
+				</div>
+			</li>
+			
+		</div>
+		<div>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner" id="money2">
+					<div class="aui-list-item-label" id="prompt2">
+						人工单次询问价格:
+					</div>
+					<div class="aui-list-item-input" id="input2">
+						<input type="text" placeholder="20.00" id="input2Obj">
+					</div>
+				</div>
+			</li>
+		</div>
+		<div class="aui-btn aui-btn-info aui-btn-block" id="btn" onclick="IWS_CheckDecimal()">提交</div>
+		<div class="aui-tips aui-margin-b-15 prompt">
+				<i class="aui-iconfont aui-icon-info"></i>
+				<span class="aui-tips-title ">格式输入错误！</span>
+			</div>
+	</body>
+	<script>
+		function IWS_CheckDecimal() {
+			var temp = /^\d+\.?\d{0,2}$/;
+			if(temp.test($("#input1Obj").val())&&temp.test($("#input2Obj").val())) {
+				$(".prompt").css("display", "none");
+				return true;
+			} else {
+				 $(".prompt").css("display", "block");
+				 return false;
+			}
+		}
+	</script>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>快速问兽医</title>
+		<link rel="stylesheet" href="../aui-20170109-v2.1/css/aui.css" />
+		<link rel="stylesheet" href="../font_751890_5bfu8cr8vk3/iconfont.css" />
+		<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../aui-20170109-v2.1/script/api.js"></script>
+		<script type="text/javascript" src="../font_751890_5bfu8cr8vk3/iconfont.js"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: white;
+			}
+			
+			.icon {
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+			}
+			
+			.select {
+				height: 120px;
+				margin-top: 10px;
+				background-color: #EAFFEA;
+				width: 90%;
+				margin: 10px auto 0 auto;
+			}
+			
+			.labelTitle {
+				margin: 20px auto 0 auto;
+				height: 30px;
+				line-height: 30px;
+				font-size: 20px;
+				font-family: "微软雅黑";
+				float: left;
+			}
+			
+			.objectSelect {
+				width: 50%;
+				float: right;
+				margin-top: 25px;
+			}
+			
+			#money {
+				width: 32%;
+				margin: 50px auto 10px auto;
+			}
+			
+			#button {
+				width: 80%;
+				margin: 0 auto 10px auto;
+			}
+			
+			#prompt {
+				width: 93%;
+				margin: 0 auto;
+			}
+			
+			span {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			<a class="aui-pull-left aui-btn" href="askDoctor.html">
+				<span class="aui-iconfont aui-icon-left"></span>上一步
+			</a>
+			<div class="aui-title">快速问兽医</div>
+		</header>
+		<li class="aui-list-item">
+			<div class="aui-list-item-inner select">
+				<div class="aui-list-item-label labelTitle">
+					请选择询问对象：
+				</div>
+				<div class="aui-list-item-input objectSelect">
+					<label><input  class="aui-radio object" type="radio" value="向机器人专家询问" name="object" onfocus="money2()" checked="checked">向机器人专家询问</label>
+					<br />
+					<br />
+					<label><input class="aui-radio object" type="radio" value="向全国知名专家询问" name="object" onfocus="money20()">向全国知名专家询问</label>
+				</div>
+			</div>
+		</li>
+		<li class="aui-list-item">
+			<div class="aui-list-item-inner select">
+				<div class="aui-list-item-label labelTitle" id="labelTitle2">
+					请选择支付方式：
+				</div>
+				<div class="aui-list-item-input objectSelect">
+					<label><input  class="aui-radio" type="radio" name="sex" checked >微信支付</label>
+					<br />
+					<br />
+					<label><input  class="aui-radio" type="radio" name="sex" >支付宝支付</label>
+				</div>
+			</div>
+		</li>
+		<div id="money">总计费用：<span id="moneyNum">2</span>元</div>
+		<div class="aui-btn aui-btn-info aui-btn-block aui-btn-sm" id="button">支付</div>
+		<div id="prompt">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择向机器人专家询问时，咨询费用为2元，选择向全国知名专家许你问时，根据指定的专家不同，收费也不一样，平均为20元。
+		</div>
+	</body>
+
+	<script>
+		function money20() {
+			$("#moneyNum").text("20");
+		}
+
+		function money2() {
+			$("#moneyNum").text("2");
+		}
+	</script>
+
+</html>

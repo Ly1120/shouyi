@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>畜牧动保互动平台</title>
+		<link rel="stylesheet" type="text/css" href="aui-20170109-v2.1/css/aui.css" />
+
+		<style>
+			body {
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			header {
+				// margin-top: 0.75rem;
+			}
+			
+			.aui-searchbar {
+				background: transparent;
+			}
+			
+			.aui-bar-nav .aui-searchbar-input {
+				background-color: #ffffff;
+			}
+			
+			.aui-bar-light .aui-searchbar-input {
+				background-color: #f5f5f5;
+			}
+			
+			#prompt {
+				width: 80%;
+				margin: 0 auto;
+				margin-top: 30px;
+				height: 40px;
+			}
+			
+			.prompt1,
+			.prompt2,
+			.prompt3,
+			.prompt4,
+		    .prompt5 {
+				display: none;
+			}
+			
+			#code {
+				float: left;
+				width: 55%;
+			}
+			
+			#getCode {
+				float: right;
+				margin-top: 10px;
+				width: 45%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="aui-bar aui-bar-nav">
+			<a class="aui-pull-left" onclick="javascript:window.history.go(-1);">
+				<span class="aui-iconfont aui-icon-left"></span>
+			</a>
+			畜牧动保互动平台
+		</header>
+		<div class="aui-content-padded"><br/>
+			<form action="<%= request.getContextPath()%>/servlet/RegisterServlet" method="post" onsubmit="return errorTest()">
+				<ul class="aui-list aui-form-list" id="ul1">
+
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								手机号
+							</div>
+							<div class="aui-list-item-input">
+								<input type="text" name="phonenumber" id="tel" placeholder="请输入11位手机号" onblur="judgeTel()">
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								验证码
+							</div>
+							<div class="aui-list-item-input">
+								<input type="text" name="phonenumber" id="code" placeholder="请输入验证码" onblur="judgeCode()">
+								<p>
+									<img src="Kaptcha.jpg" onclick="changeVerifyCode()" id="verificationCode" alt="加载失败...">
+								</p>
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								密码
+							</div>
+							<div class="aui-list-item-input">
+								<input type="password" name="password" placeholder="请输入密码" id="pwd1" onblur="cipherLength()">
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								密码确认
+							</div>
+							<div class="aui-list-item-input">
+								<input type="password" placeholder="请再次输入密码" id="pwd2" onblur="judgeCipher()">
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								我是
+							</div>
+							<div class="aui-list-item-input">
+								<label><input id="type1" class="aui-radio" type="radio" name="demo1" checked value="1"> 用户</label>
+								<label><input id="type2" class="aui-radio" type="radio" name="demo1" value="2"> 专家</label>
+							</div>
+						</div>
+					</li>
+					<li class="aui-list-item" style="display: none" id="show">
+						<div class="aui-list-item-inner">
+							<div class="aui-list-item-label">
+								科目
+							</div>
+							<div class="aui-list-item-input">
+								<label><input id="subject1" class="aui-radio" type="radio" name="subject" checked value="1">科目一</label>
+								<label><input id="subject2" class="aui-radio" type="radio" name="subject" value="2"> 科目二</label>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<br/><br/>
+				<p>
+					<input class="aui-btn aui-btn-info aui-btn-block" type="submit" value="注册">
+				</p>
+			</form>
+		</div>
+		<div id="prompt">
+			<div class="aui-tips aui-margin-b-15 prompt1">
+				<i class="aui-iconfont aui-icon-info"></i>
+				<span class="aui-tips-title ">请输入正确的手机号！</span>
+			</div>
+			<div class="aui-tips aui-margin-b-15 prompt2">
+				<i class="aui-iconfont aui-icon-info"></i>
+				<span class="aui-tips-title ">两次密码不一致!</span>
+			</div>
+			<div class="aui-tips aui-margin-b-15 prompt3">
+				<i class="aui-iconfont aui-icon-info"></i>
+				<span class="aui-tips-title ">密码最少六个字符！</span>
+			</div>
+			<!--<div class="aui-tips aui-margin-b-15 prompt4">
+				<i class="aui-iconfont aui-icon-info"></i>
+				<span class="aui-tips-title ">名称最少两个字符！</span>
+			</div>-->
+			<div class="aui-tips aui-margin-b-15 prompt5">
+				<i class="aui-iconfont aui-icon-info"></i>
+				<span class="aui-tips-title ">验证码错误！</span>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#type1").click(function() {
+				$("#show").hide();
+			});
+
+			$("#type2").click(function() {
+				$("#show").show();
+			});
+		});
+
+		function judgeTel() {
+			var phone = document.getElementById('tel').value;
+			if(!(/^1[34578]\d{9}$/.test(phone))) {
+				$(".prompt2").css("display", "none");
+				$(".prompt3").css("display", "none");
+				$(".prompt4").css("display", "none");
+				$(".prompt5").css("display", "none");
+				$(".prompt1").css("display", "block");
+			} else {
+				$(".prompt1").css("display", "none");
+			}
+		}
+
+		function judgeCipher() {
+			var a = document.getElementById("pwd1").value;
+			var b = document.getElementById("pwd2").value;
+			if(a != b) {
+				$(".prompt1").css("display", "none");
+				$(".prompt3").css("display", "none");
+				$(".prompt4").css("display", "none");
+				$(".prompt5").css("display", "none");
+				$(".prompt2").css("display", "block");
+
+			} else {
+				$(".prompt2").css("display", "none");
+			}
+		}
+
+		function cipherLength() {
+			var c = document.getElementById("pwd1").value;
+			if(c.length < 6) {
+				$(".prompt1").css("display", "none");
+				$(".prompt2").css("display", "none");
+				$(".prompt4").css("display", "none");
+				$(".prompt5").css("display", "none");
+				$(".prompt3").css("display", "block");
+			} else {
+				$(".prompt3").css("display", "none");
+			}
+		}
+
+//		function nameLength() {
+//			var c = document.getElementById("username_value").value;
+//			if(c.length < 2) {
+//				$(".prompt1").css("display", "none");
+//				$(".prompt2").css("display", "none");
+//				$(".prompt3").css("display", "none");
+//				$(".prompt3").css("display", "none");
+//				$(".prompt5").css("display", "block");
+//			} else {
+//				$(".prompt4").css("display", "none");
+//			}
+//		}
+
+        function judgeCode() {
+			var a = document.getElementById("code").value;
+			
+			if(a != "1234") {
+				$(".prompt1").css("display", "none");
+				$(".prompt2").css("display", "none");
+				$(".prompt3").css("display", "none");
+				$(".prompt4").css("display", "none");			
+				$(".prompt5").css("display", "block");
+
+			} else {
+				$(".prompt5").css("display", "none");
+			}
+		}
+
+
+		function errorTest() {
+			var a = $("#tel").val();
+			var b = $("#pwd1").val();
+			var c = $("#pwd2").val();
+//			var d = $("#username_value").val();
+			var e = $("#code").val();
+			var telCss = $(".prompt1").css("display");
+			var pwdCss = $(".prompt2").css("display");
+			var pwdLengthCss = $(".prompt3").css("display");
+			var nameLengthCss = $(".prompt4").css("display");
+			var codeCss = $(".prompt5").css("display");
+			var errorInfo = "none";
+			if(a == "" || b == "" || c == "" || d == "" || e == "") {
+				alert("未完善注册信息！");
+				return false;
+			}
+			if(telCss != errorInfo) {
+				alert("注册信息有误！");
+				return false;
+			}
+			if(pwdCss != errorInfo) {
+				alert("注册信息有误！");
+				return false;
+			}
+			if(pwdLengthCss != errorInfo) {
+				alert("注册信息有误！");
+				return false;
+			}
+			if(codeCss != errorInfo) {
+				alert("注册信息有误！");
+				return false;
+			}
+			if(nameLengthCss != errorInfo) {
+				alert("注册信息有误！");
+				return false;
+			} else {
+				alert("注册成功，请重新登录！")
+				//            window.location.href="login.jsp";
+				return true;
+			}
+		}
+		var btnDisable = false;
+
+		function time() {
+
+			if(btnDisable) {
+				return;
+			}
+
+			timeWait(60);
+			btnDisable = true;
+		}
+
+		function timeWait(time) {
+			setTimeout(function() {
+				if(time >= 0) {
+					$("#getCode").removeClass("aui-btn-primary");
+					$("#getCode").text(time + "s重试");
+					time--;
+					timeWait(time);
+				} else {
+					$("#getCode").text("获取验证码");
+					$("#getCode").addClass("aui-btn-primary");
+					btnDisable = false;
+				}
+			}, 1000);
+		}
+
+		function changeVerifyCode() {
+			$("#verificationCode").attr("src", "Kaptcha.jpg?" + Math.floor(Math.random() * 100));
+		}
+	</script>
+
+</html>

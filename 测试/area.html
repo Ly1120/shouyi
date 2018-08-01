@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" href="aui-20170109-v2.1/css/aui.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="aui-20170109-v2.1/script/api.js"></script>
+		<style type="text/css">
+			li img {
+				width: 83px;
+				height: 83px;
+			}
+			
+			#dropDown {
+				width: 120px;
+				height: 83px;
+				border: 1px solid black;
+				margin-left: 50px;
+			}
+			
+			#dropDown div {
+				width: 83px;
+				height: 83px;
+			}
+			
+			#dropDown i {
+				line-height: 83px;
+				position: absolute;
+				top: 0px;
+				left: 135px;
+			}
+			
+			.aui-icon-down {
+				font-size: 1.5rem;
+			}
+			
+			#popup {
+				display: none;
+			}
+		</style>
+		<script>
+			function choiceImg() {
+				var a = $("#popup").css("display");
+				if(a == "block") {
+					$("#popup").css("display", "none");
+				} else {
+					$("#popup").css("display", "block");
+				}
+			}
+
+			$(function() {
+				$(".portrait").each(function() {
+					$(this).click(function() {
+						var url = $(this).children().attr("src");
+						$("#selectedIcon").attr("src", url);
+					});
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="dropDown" onclick="choiceImg()">
+			<div>
+				<img class="aui-img-round" id="selectedIcon" src="aui-20170109-v2.1/image/demo1.png" />
+			</div>
+			<i class="aui-iconfont aui-icon-down"></i>
+		</div>
+
+		<div id="popup">
+			<section class="aui-grid">
+				<div class="aui-row">
+					<div class="aui-col-xs-3">
+					</div>
+					<div class="aui-col-xs-1.5 portrait">
+						<img class="aui-img-round" src="aui-20170109-v2.1/image/demo1.png" />
+					</div>
+					<div class="aui-col-xs-1.5 portrait">
+						<img class="aui-img-round" src="aui-20170109-v2.1/image/demo2.png" />
+					</div>
+					<div class="aui-col-xs-1.5 portrait">
+						<img class="aui-img-round" src="aui-20170109-v2.1/image/demo3.png" />
+					</div>
+					<div class="aui-col-xs-1.5 portrait">
+						<img class="aui-img-round" src="aui-20170109-v2.1/image/demo4.png" />
+					</div>
+					<div class="aui-col-xs-1.5 portrait">
+						<img class="aui-img-round" src="aui-20170109-v2.1/image/demo5.png" />
+					</div>
+					<div class="aui-col-xs-1.5 portrait">
+						<img class="aui-img-round" src="aui-20170109-v2.1/image/demo6.png" />
+					</div>
+				</div>
+			</section>
+		</div>
+
+	</body>
+
+</html>
